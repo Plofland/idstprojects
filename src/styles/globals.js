@@ -20,8 +20,8 @@ const ResetStyles = createGlobalStyle`
 
   /* Set default font family and size */
   body {
-    font-family: 'Helvetica', 'Arial', sans-serif;
-    font-size: 16px;
+    font-family: "CeraPro", sans-serif;
+    font-size: 12px;
     line-height: 1.5;
   }
 

@@ -10,6 +10,12 @@ const Navbar = () => {
 				rel="noopener noreferrer"
 			>
 				<h2>About</h2>
+				<SubMenuContainer>
+					<SubMenu>
+						<SubMenuItem>Number 1</SubMenuItem>
+						<SubMenuItem>Number 2</SubMenuItem>
+					</SubMenu>
+				</SubMenuContainer>
 			</NavItem>
 
 			<NavItem
@@ -17,12 +23,24 @@ const Navbar = () => {
 				rel="noopener noreferrer"
 			>
 				<h2>Projects</h2>
+				<SubMenuContainer>
+					<SubMenu>
+						<SubMenuItem>Number 1</SubMenuItem>
+						<SubMenuItem>Number 2</SubMenuItem>
+					</SubMenu>
+				</SubMenuContainer>
 			</NavItem>
 			<NavItem
 				href="/services"
 				rel="noopener noreferrer"
 			>
 				<h2>Service</h2>
+				<SubMenuContainer>
+					<SubMenu>
+						<SubMenuItem>Number 1</SubMenuItem>
+						<SubMenuItem>Number 2</SubMenuItem>
+					</SubMenu>
+				</SubMenuContainer>
 			</NavItem>
 
 			<NavItem
@@ -31,6 +49,13 @@ const Navbar = () => {
 				rel="noopener noreferrer"
 			>
 				<h2>Contact</h2>
+				<SubMenuContainer>
+					<SubMenu>
+						<SubMenuItem>Number 1</SubMenuItem>
+
+						<SubMenuItem>Number 2</SubMenuItem>
+					</SubMenu>
+				</SubMenuContainer>
 			</NavItem>
 		</Container>
 	);
@@ -48,11 +73,46 @@ const Container = styled.div`
 	border: 2px solid white;
 `;
 
+const SubMenuContainer = styled.div`
+	/* position: absolute; */
+	/* top: 100%; */
+	left: 0%;
+`;
+
+const SubMenu = styled.ul`
+	/* position: absolute;
+	top: 100%;
+	left: 0;
+	width: 120px; */
+	background-color: rgba(169, 169, 169, 0.5);
+	opacity: 0; /* Initially hidden */
+	pointer-events: none; /* Initially not clickable */
+	transition: opacity 0.3s ease;
+
+	${SubMenuContainer}:hover & {
+		opacity: 1; /* Show the submenu when SubMenuContainer is hovered */
+		pointer-events: auto;
+	}
+`;
+
+const SubMenuItem = styled.li`
+	padding: 0.5em;
+	color: white;
+	cursor: pointer;
+
+	&:hover {
+		background-color: rgba(255, 255, 255, 0.2);
+	}
+`;
+
 const NavItem = styled(Link)`
 	position: relative;
 	padding: 0.5em 2em 0.5em 2em;
 	text-decoration: none;
 	font-family: 'CeraPro', sans-serif;
+	text-transform: uppercase;
+	font-weight: 700;
+	letter-spacing: 2px;
 
 	h2 {
 		margin: 0;
@@ -60,8 +120,13 @@ const NavItem = styled(Link)`
 
 	&:hover {
 		h2::before {
-			width: 100%; /* Expand the pseudo-element to reveal the border-bottom */
+			width: 100%;
 		}
+	}
+
+	&:hover ${SubMenuContainer} {
+		/* Show the SubMenuContainer on hover */
+		height: auto;
 	}
 
 	h2::before {
@@ -69,9 +134,9 @@ const NavItem = styled(Link)`
 		position: absolute;
 		bottom: 0;
 		left: 0;
-		width: 0; /* Initially, the pseudo-element is hidden */
-		height: 2px; /* Height of the border-bottom */
+		width: 0;
+		height: 2px;
 		background-color: white;
-		transition: width 0.5s ease; /* Transition effect over 500ms */
+		transition: width 0.7s ease;
 	}
 `;

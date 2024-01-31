@@ -39,7 +39,7 @@ export default function Home() {
 						</p>
 					</HeroContent>
 				</HeroSection>
-        {/* <Content /> */}
+				{/* <Content /> */}
 			</main>
 		</>
 	);
@@ -51,10 +51,8 @@ const NavContainer = styled.div`
 	padding: 10px;
 	position: fixed;
 	width: 100%;
-	z-index: 100; 
+	z-index: 100;
 `;
-
-
 
 const HeroSection = styled.section`
 	position: relative;
@@ -63,6 +61,8 @@ const HeroSection = styled.section`
 
 const HeroImage = styled(Image)`
 	/* Optional: Apply additional styles to the image if needed */
+	z-index: -1;
+  opacity: 20%;
 `;
 
 const HeroContent = styled.div`
@@ -75,6 +75,5 @@ const HeroContent = styled.div`
 `;
 
 const Content = styled.div`
-height: 100vh;
-
+	height: 100vh;
 `;
