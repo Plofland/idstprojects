@@ -39,6 +39,7 @@ export default function Home() {
 						</p>
 					</HeroContent>
 				</HeroSection>
+        {/* <Content /> */}
 			</main>
 		</>
 	);
@@ -50,8 +51,10 @@ const NavContainer = styled.div`
 	padding: 10px;
 	position: fixed;
 	width: 100%;
-	z-index: 100; /* Ensure Navbar is on top of other elements */
+	z-index: 100; 
 `;
+
+
 
 const HeroSection = styled.section`
 	position: relative;
@@ -69,4 +72,9 @@ const HeroContent = styled.div`
 	transform: translate(-50%, -50%);
 	text-align: center;
 	color: #fff; /* Set text color */
+`;
+
+const Content = styled.div`
+height: 100vh;
+
 `;
