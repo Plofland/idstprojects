@@ -18,9 +18,15 @@ const Navbar = () => {
 			>
 				<h2>Projects</h2>
 			</NavItem>
+			<NavItem
+				href="/services"
+				rel="noopener noreferrer"
+			>
+				<h2>Service</h2>
+			</NavItem>
 
 			<NavItem
-				href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
+				href="/contact"
 				target="_blank"
 				rel="noopener noreferrer"
 			>
@@ -43,6 +49,29 @@ const Container = styled.div`
 `;
 
 const NavItem = styled(Link)`
-	border: 1px solid black;
-	padding: .5em 2em .5em 2em;
+	position: relative;
+	padding: 0.5em 2em 0.5em 2em;
+	text-decoration: none;
+	font-family: 'CeraPro', sans-serif;
+
+	h2 {
+		margin: 0;
+	}
+
+	&:hover {
+		h2::before {
+			width: 100%; /* Expand the pseudo-element to reveal the border-bottom */
+		}
+	}
+
+	h2::before {
+		content: '';
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 0; /* Initially, the pseudo-element is hidden */
+		height: 2px; /* Height of the border-bottom */
+		background-color: white;
+		transition: width 0.5s ease; /* Transition effect over 500ms */
+	}
 `;
