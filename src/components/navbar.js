@@ -68,41 +68,15 @@ const Container = styled.div`
 	grid-template-columns: repeat(4, minmax(25%, auto));
 	max-width: 100vw;
 	width: 100%;
-	justify-content: flex-end;
-	align-items: flex-end;
+	/* justify-content: flex-end;
+	align-items: flex-end; */
 	border: 2px solid white;
 `;
 
 const SubMenuContainer = styled.div`
 	/* position: absolute; */
 	/* top: 100%; */
-	left: 0%;
-`;
-
-const SubMenu = styled.ul`
-	/* position: absolute;
-	top: 100%;
-	left: 0;
-	width: 120px; */
-	background-color: rgba(169, 169, 169, 0.5);
-	opacity: 0; /* Initially hidden */
-	pointer-events: none; /* Initially not clickable */
-	transition: opacity 0.3s ease;
-
-	${SubMenuContainer}:hover & {
-		opacity: 1; /* Show the submenu when SubMenuContainer is hovered */
-		pointer-events: auto;
-	}
-`;
-
-const SubMenuItem = styled.li`
-	padding: 0.5em;
-	color: white;
-	cursor: pointer;
-
-	&:hover {
-		background-color: rgba(255, 255, 255, 0.2);
-	}
+	/* left: 0%; */
 `;
 
 const NavItem = styled(Link)`
@@ -138,5 +112,33 @@ const NavItem = styled(Link)`
 		height: 2px;
 		background-color: white;
 		transition: width 0.7s ease;
+	}
+`;
+
+
+
+const SubMenu = styled.ul`
+	/* position: absolute;
+	top: 100%;
+	left: 0;
+	width: 120px; */
+	background-color: rgba(169, 169, 169, 0.5);
+	opacity: 0; /* Initially hidden */
+	pointer-events: none; /* Initially not clickable */
+	transition: opacity 0.3s ease;
+
+	${NavItem}:hover & {
+		opacity: 1; /* Show the submenu when SubMenuContainer is hovered */
+		pointer-events: auto;
+	}
+`;
+
+const SubMenuItem = styled.li`
+	padding: 0.5em;
+	color: white;
+	cursor: pointer;
+
+	&:hover {
+		background-color: rgba(255, 255, 255, 0.2);
 	}
 `;

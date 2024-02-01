@@ -62,7 +62,7 @@ const HeroSection = styled.section`
 const HeroImage = styled(Image)`
 	/* Optional: Apply additional styles to the image if needed */
 	z-index: -1;
-  opacity: 20%;
+  opacity: 10%;
 `;
 
 const HeroContent = styled.div`
