@@ -20,7 +20,7 @@ export default function Home() {
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 			<ResetStyles />
-			<main>
+			<Main>
 				<NavContainer>
 					<Navbar />
 				</NavContainer>
@@ -28,8 +28,7 @@ export default function Home() {
 					<HeroImage
 						src="/luxury-builder-new-york-city-04.jpg"
 						alt="Hero Image Alt Text"
-						layout="fill"
-						objectFit="cover"
+            fill={true}
 					/>
 					<HeroContent>
 						<h1>Your Hero Content Goes Here</h1>
@@ -40,18 +39,23 @@ export default function Home() {
 					</HeroContent>
 				</HeroSection>
 				{/* <Content /> */}
-			</main>
+			</Main>
 		</>
 	);
 }
 
+const Main = styled.main`
+  position: relative;
+`;
+
 const NavContainer = styled.div`
 	background-color: #333;
 	color: white;
-	padding: 10px;
+	padding-top: 2rem;
 	position: fixed;
 	width: 100%;
 	z-index: 100;
+  position: absolute;
 `;
 
 const HeroSection = styled.section`
@@ -60,7 +64,6 @@ const HeroSection = styled.section`
 `;
 
 const HeroImage = styled(Image)`
-	/* Optional: Apply additional styles to the image if needed */
 	z-index: -1;
   opacity: 10%;
 `;

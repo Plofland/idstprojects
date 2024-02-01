@@ -9,7 +9,7 @@ const Navbar = () => {
 				href="/about"
 				rel="noopener noreferrer"
 			>
-				<h2>About</h2>
+				<NavName>About</NavName>
 				<SubMenuContainer>
 					<SubMenu>
 						<SubMenuItem>Number 1</SubMenuItem>
@@ -22,7 +22,7 @@ const Navbar = () => {
 				href="/projects"
 				rel="noopener noreferrer"
 			>
-				<h2>Projects</h2>
+				<NavName>Projects</NavName>
 				<SubMenuContainer>
 					<SubMenu>
 						<SubMenuItem>Number 1</SubMenuItem>
@@ -34,7 +34,7 @@ const Navbar = () => {
 				href="/services"
 				rel="noopener noreferrer"
 			>
-				<h2>Service</h2>
+				<NavName>Service</NavName>
 				<SubMenuContainer>
 					<SubMenu>
 						<SubMenuItem>Number 1</SubMenuItem>
@@ -48,11 +48,10 @@ const Navbar = () => {
 				target="_blank"
 				rel="noopener noreferrer"
 			>
-				<h2>Contact</h2>
+				<NavName>Contact</NavName>
 				<SubMenuContainer>
 					<SubMenu>
 						<SubMenuItem>Number 1</SubMenuItem>
-
 						<SubMenuItem>Number 2</SubMenuItem>
 					</SubMenu>
 				</SubMenuContainer>
@@ -68,9 +67,30 @@ const Container = styled.div`
 	grid-template-columns: repeat(4, minmax(25%, auto));
 	max-width: 100vw;
 	width: 100%;
-	/* justify-content: flex-end;
-	align-items: flex-end; */
-	border: 2px solid white;
+	justify-content: flex-end;
+	align-items: flex-end;
+	/* border: 2px solid white; */
+`;
+
+const NavName = styled.h2`
+    position: relative;
+    
+	&:before {
+		content: '';
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 0;
+		height: 2px;
+		background-color: white;
+		transition: width 0.7s ease;
+	}
+
+    &:hover:before {
+        width: 100%;
+	}
+
+    border: 1px solid yellowgreen;
 `;
 
 const SubMenuContainer = styled.div`
@@ -92,36 +112,13 @@ const NavItem = styled(Link)`
 		margin: 0;
 	}
 
-	&:hover {
-		h2::before {
-			width: 100%;
-		}
-	}
-
 	&:hover ${SubMenuContainer} {
 		/* Show the SubMenuContainer on hover */
 		height: auto;
 	}
-
-	h2::before {
-		content: '';
-		position: absolute;
-		bottom: 0;
-		left: 0;
-		width: 0;
-		height: 2px;
-		background-color: white;
-		transition: width 0.7s ease;
-	}
 `;
 
-
-
 const SubMenu = styled.ul`
-	/* position: absolute;
-	top: 100%;
-	left: 0;
-	width: 120px; */
 	background-color: rgba(169, 169, 169, 0.5);
 	opacity: 0; /* Initially hidden */
 	pointer-events: none; /* Initially not clickable */
