@@ -3,6 +3,11 @@ import Image from 'next/image';
 import styled from 'styled-components';
 import Navbar from '@/components/navbar';
 import ResetStyles from '@/styles/globals';
+import MobileNavMenu from '@/components/MobileNavMenu';
+import { Squash as Hamburger } from 'hamburger-react'
+import { useState } from 'react';
+
+const [isOpen, setOpen] = useState(false)
 
 export default function Home() {
 	return (
@@ -21,14 +26,16 @@ export default function Home() {
 			</Head>
 			<ResetStyles />
 			<Main>
-				<NavContainer>
+				<MobileNavMenu />
+				{/* <NavContainer>
 					<Navbar />
-				</NavContainer>
+				</NavContainer> */}
+        <Hamburger toggled={isOpen} toggle={setOpen} />
 				<HeroSection>
 					<HeroImage
 						src="/luxury-builder-new-york-city-04.jpg"
 						alt="Hero Image Alt Text"
-            fill={true}
+						fill={true}
 					/>
 					<HeroContent>
 						<h1>Your Hero Content Goes Here</h1>
@@ -45,7 +52,8 @@ export default function Home() {
 }
 
 const Main = styled.main`
-  position: relative;
+	position: relative;
+  /* background-color: aliceblue; */
 `;
 
 const NavContainer = styled.div`
@@ -55,7 +63,7 @@ const NavContainer = styled.div`
 	position: fixed;
 	width: 100%;
 	z-index: 100;
-  position: absolute;
+	position: absolute;
 `;
 
 const HeroSection = styled.section`
@@ -65,7 +73,7 @@ const HeroSection = styled.section`
 
 const HeroImage = styled(Image)`
 	z-index: -1;
-  opacity: 10%;
+	opacity: 10%;
 `;
 
 const HeroContent = styled.div`
