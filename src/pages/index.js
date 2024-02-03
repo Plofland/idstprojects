@@ -4,12 +4,11 @@ import styled from 'styled-components';
 import Navbar from '@/components/navbar';
 import ResetStyles from '@/styles/globals';
 import MobileNavMenu from '@/components/MobileNavMenu';
-import { Squash as Hamburger } from 'hamburger-react'
+import { Squash as Hamburger } from 'hamburger-react';
 import { useState } from 'react';
 
-const [isOpen, setOpen] = useState(false)
-
 export default function Home() {
+	const [isOpen, setOpen] = useState(false);
 	return (
 		<>
 			<Head>
@@ -26,12 +25,20 @@ export default function Home() {
 			</Head>
 			<ResetStyles />
 			<Main>
-				<MobileNavMenu />
+				<MobileMenuIcon>
+					<Hamburger
+						toggled={isOpen}
+						toggle={setOpen}
+						size={42}
+						distance="lg"
+					/>
+				</MobileMenuIcon>
+				{isOpen && <p>TRUE</p>}
+				{isOpen && <MobileNavMenu />}
 				{/* <NavContainer>
 					<Navbar />
 				</NavContainer> */}
-        <Hamburger toggled={isOpen} toggle={setOpen} />
-				<HeroSection>
+				{/* <HeroSection>
 					<HeroImage
 						src="/luxury-builder-new-york-city-04.jpg"
 						alt="Hero Image Alt Text"
@@ -44,7 +51,7 @@ export default function Home() {
 							call-to-action
 						</p>
 					</HeroContent>
-				</HeroSection>
+				</HeroSection> */}
 				{/* <Content /> */}
 			</Main>
 		</>
@@ -53,7 +60,6 @@ export default function Home() {
 
 const Main = styled.main`
 	position: relative;
-  /* background-color: aliceblue; */
 `;
 
 const NavContainer = styled.div`
@@ -64,6 +70,16 @@ const NavContainer = styled.div`
 	width: 100%;
 	z-index: 100;
 	position: absolute;
+`;
+
+const MobileMenuIcon = styled.div`
+	display: flex;
+	justify-content: flex-end;
+	padding: 16px;
+	background-color: ${({ isOpen }) =>
+		isOpen
+			? 'rgba(55, 55, 55, 0.8)'
+			: 'rgba(0, 0, 0, 0)'};
 `;
 
 const HeroSection = styled.section`

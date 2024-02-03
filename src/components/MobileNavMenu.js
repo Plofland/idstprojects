@@ -22,16 +22,22 @@ const MobileNavMenu = () => {
 export default MobileNavMenu;
 
 const MobileMenu = styled.div`
-  width: 300px;
+  width: 100vw;
   height: 100vh;
-  position: fixed;
-  top: 0;
-  right: 0;
+  position: center;
   background-color: rgba(55, 55, 55, 0.8); 
-  box-shadow: -4px 0 8px rgba(0, 0, 0, 0.1); 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 2px;
 `;
 
 const MenuItem = styled(Link)`
-  font-size: 16px;
+  font-size: 18px;
+  font-style: bold;
+  margin: 8px 0 8px 0;
 `;
 
